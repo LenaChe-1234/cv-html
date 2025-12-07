@@ -1,0 +1,13 @@
+{
+  "name": "cv-pdf-server",
+  "version": "1.0.0",
+  "description": "Serve CV and generate two-column PDF via Puppeteer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0",
+    "puppeteer": "^22.0.0"
+  }
+}
