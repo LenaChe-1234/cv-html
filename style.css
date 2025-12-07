@@ -299,63 +299,14 @@ body {
     }
 }
 
-/* Print / PDF */
-
+/* ---------- PRINT STYLES ---------- */
 @page {
     size: A4;
     margin: 12mm 15mm;
 }
 
 @media print {
-    body {
-        background: #ffffff;
-    }
-
-    .page {
-        box-shadow: none;
-        margin: 0;
-        max-width: 100%;
-        border-radius: 0;
-    }
-
     .download-btn {
         display: none !important;
-    }
-
-    .layout {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .sidebar,
-    .main {
-        width: 100%;
-        /* border-right: 1px solid #e5e7eb; */
-        padding: 0;
-    }
-
-    body {
-        font-size: 12px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    h2 {
-        font-size: 12px;
-    }
-
-    .section-title {
-        font-size: 11px;
-    }
-
-    .bullets li {
-        margin-bottom: 2px;
-    }
-
-    .sidebar {
-        background: transparent;
-        box-shadow: none;
     }
 }

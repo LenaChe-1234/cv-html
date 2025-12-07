@@ -36,9 +36,9 @@
   </head>
   <body>
     <div class="page">
-      <!-- <button class="download-btn" onclick="window.print()">
-        Download PDF
-      </button> -->
+        <button class="download-btn" type="button" onclick="downloadPDF()">
+           Download PDF
+        </button>
       <div class="name-wrapper">
         <img src="photo.jpg" alt="Profile photo" class="profile-photo" />
         <header class="header">
@@ -50,13 +50,6 @@
             <div>
               <a href="mailto:lenazurich@gmail.com">lenazurich@gmail.com</a>
             </div>
-            <a
-              class="download-btn"
-              href="https://1drv.ms/b/c/c59d6bcce908499f/IQACxt06QeBgQZgaS-WqPdZkAS7sRgCqYBfz827JHpNA97I?e=yVOjBt"
-              target="_blank"
-            >
-              Download PDF
-            </a>
             <div>+41 76 588 66 45</div>
             <div>Zurich, Switzerland</div>
           </div>
@@ -133,10 +126,10 @@
           <section class="section-block">
             <h3 class="section-title">Languages</h3>
             <ul class="list-plain">
-              <li>English</li>
-              <li>German</li>
-              <li>Russian</li>
-              <li>Ukrainian</li>
+              <li>English, B2</li>
+              <li>German, B2</li>
+              <li>Russian, Native</li>
+              <li>Ukrainian, Native</li>
             </ul>
           </section>
 
@@ -372,5 +365,53 @@
         </main>
       </div>
     </div>
+<!-- <script>
+  async function downloadPDF() {
+    const response = await fetch("/generate-pdf");
+
+    if (!response.ok) {
+      alert("Error generating PDF");
+      return;
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "cv.pdf";
+    a.click();
+
+    window.URL.revokeObjectURL(url);
+  }
+</script> -->
+
+<script>
+  async function downloadPDF() {
+    try {
+      const response = await fetch("/generate-pdf");
+
+      if (!response.ok) {
+        const text = await response.text().catch(() => "");
+        alert(`Error generating PDF: ${response.status}\n${text}`);
+        return;
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "cv.pdf";
+      a.click();
+
+      window.URL.revokeObjectURL(url);
+    } catch (e) {
+      alert(`Request failed: ${e?.message || e}`);
+    }
+  }
+</script>
+
+
   </body>
 </html>
