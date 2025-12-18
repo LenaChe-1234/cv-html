@@ -4,6 +4,7 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Serve static files (index.html, style.css, photo.jpg, etc.)
 app.use(express.static(path.join(__dirname)));
@@ -13,13 +14,13 @@ app.get("/generate-pdf", async (req, res) => {
 
   try {
   browser = await puppeteer.launch({
-    headless: "new",
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-    ],
-  });
+  headless: "new",
+  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/google-chrome-stable",
+  args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+});
+
+const fs = require("fs");
+console.log("chrome exists:", fs.existsSync("/usr/bin/google-chrome-stable"));
 
     const page = await browser.newPage();
 
@@ -41,7 +42,7 @@ app.get("/generate-pdf", async (req, res) => {
 
     // Wait for fonts/resources to render
     await page.evaluate(() => document.fonts?.ready);
-    await page.waitForTimeout(200);
+    await sleep(200);
 
     // Measure content size via DOM (more reliable than boundingBox)
     const { width, height } = await page.$eval(".page", (el) => {
