@@ -10,9 +10,8 @@ WORKDIR /app
 # 4. Copy package.json and package-lock.json (if present)
 COPY package*.json ./
 
-# 5. Install Node.js dependencies
-RUN npm install
-RUN npx puppeteer browsers install chrome
+# 5. Install Node.js dependencies using ci for reproducibility
+RUN npm ci
 
 # 6. Copy the rest of the project files into the container
 COPY . .
