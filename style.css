@@ -1,9 +1,11 @@
+/* =========================================================
+   RESET & BASE
+========================================================= */
 * {
     box-sizing: border-box;
 }
 
-/* Base style */
-
+html,
 body {
     margin: 0;
     padding: 0;
@@ -13,6 +15,10 @@ body {
     color: #222;
     background: #f3f4f6;
 }
+
+/* =========================================================
+   SCREEN LAYOUT (WEB)
+========================================================= */
 
 .page {
     max-width: 1000px;
@@ -24,8 +30,7 @@ body {
     position: relative;
 }
 
-/* Download PDF button */
-
+/* Download button (screen only) */
 .download-btn {
     position: fixed;
     right: 30px;
@@ -49,7 +54,6 @@ body {
 .download-btn:hover {
     background: #1e5a96;
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .download-btn:active {
@@ -57,31 +61,6 @@ body {
 }
 
 /* Header */
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-grow: 1;
-}
-
-/* Photo */
-
-.profile-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #fff;
-    padding: 2px;
-    border: 3px solid #9cbcec;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
-}
-
-/* Name wrapper */
-
 .name-wrapper {
     background: #14497b;
     padding: 24px 32px;
@@ -92,7 +71,23 @@ body {
     margin-bottom: 24px;
 }
 
-/* Name and role – white */
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    padding: 2px;
+    border: 3px solid #9cbcec;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-grow: 1;
+}
 
 .name-block h1 {
     margin: 0;
@@ -111,12 +106,9 @@ body {
     letter-spacing: 0.14em;
 }
 
-/* Contact in header */
-
 .contact {
     text-align: right;
     font-size: 13px;
-    line-height: 1.4;
     color: #e5e7eb;
     display: flex;
     flex-direction: column;
@@ -129,38 +121,29 @@ body {
     text-decoration: none;
 }
 
-.contact a:hover {
-    text-decoration: underline;
-}
-
 /* Main layout */
-
 .layout {
     display: flex;
     gap: 24px;
-    margin-top: 4px;
 }
-
-/* Sidebar */
 
 .sidebar {
     width: 32%;
-    padding: 20px 20px 20px 0;
+    padding-right: 20px;
     border-right: 1px solid #eef2f6;
-    background-color: #fafbfc;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    background: #fafbfc;
 }
 
 .main {
     width: 68%;
     padding-left: 16px;
-    padding-top: 20px;
 }
 
-/* Section headers */
-
+/* Sections */
 .section-title {
+    margin: 20px 0 12px;
+    font-size: 14px;
+    font-weight: 800;
     margin: 20px 0 12px;
     font-size: 14px;
     font-weight: 800;
@@ -171,56 +154,35 @@ body {
     padding-bottom: 4px;
 }
 
-.section-block:first-child .section-title {
-    margin-top: 0;
-}
-
 .section-block {
     margin-bottom: 14px;
 }
-
-/* About text */
 
 .about-text {
     margin: 0;
     font-size: 13px;
     color: #111827;
-    text-align: left;
-    text-justify: inter-word;
     hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
 }
-
-/* Sub-sections (Skills, Languages и т.п.) */
 
 .subheading {
     font-weight: 600;
-    margin-top: 8px;
-    margin-bottom: 1px;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.09em;
-    color: #404040;
+    margin-top: 8px;
 }
 
-.skill-line {
-    margin: 0;
+.skill-line,
+.list-plain,
+.bullets {
     font-size: 13px;
-    color: #111827;
 }
-
-.skill-group {
-    margin-bottom: 4px;
-}
-
-/* List in sidebar */
 
 .list-plain {
-    margin: 4px 0 0;
-    padding: 0;
     list-style: none;
-    font-size: 13px;
+    padding: 0;
+    margin: 4px 0 0;
 }
 
 .list-plain li {
@@ -233,32 +195,21 @@ body {
 }
 
 /* Experience */
-
 .experience-item {
     margin-bottom: 16px;
-}
-
-.exp-header {
-    margin-bottom: 4px;
 }
 
 .exp-title-row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 8px;
 }
 
 .exp-title {
     font-weight: 600;
-    font-size: 14px;
 }
 
-.exp-dates {
-    font-size: 12px;
-    color: #6b7280;
-}
-
+.exp-dates,
 .exp-meta {
     font-size: 12px;
     color: #6b7280;
@@ -267,29 +218,29 @@ body {
 .exp-subtitle {
     font-weight: 600;
     font-size: 12px;
-    margin: 6px 0 2px;
+    margin-top: 6px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #4b5563;
 }
 
-.bullets {
-    margin: 2px 0 4px 16px;
-    padding: 0;
-    font-size: 13px;
-}
+/* =========================================================
+   RESPONSIVE (MOBILE)
+========================================================= */
 
-.bullets li {
-    margin-bottom: 3px;
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .page {
         margin: 0;
+        padding: 16px;
         border-radius: 0;
-        box-shadow: none;
+    }
+
+    .name-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact {
+        align-items: center;
+        text-align: center;
     }
 
     .layout {
@@ -299,26 +250,28 @@ body {
     .sidebar,
     .main {
         width: 100%;
-        border-right: none;
         padding: 0;
+        border: none;
     }
 
-    .contact {
-        text-align: left;
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
+    .download-btn {
+        position: static;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 16px;
     }
 }
 
-/* ---------- PRINT STYLES ---------- */
+/* =========================================================
+   LEVEL 3 — PDF MODE
+========================================================= */
+
 @page {
     size: A4;
     margin: 0;
 }
 
+/* Toggle layouts */
 .screen-only {
     display: block;
 }
@@ -327,7 +280,9 @@ body {
     display: none;
 }
 
+/* PRINT / PDF */
 @media print {
+    .screen-only {
     .screen-only {
         display: none !important;
     }
@@ -337,15 +292,24 @@ body {
     }
 
     html,
-    body {
+    body,
+    .page,
+    .pdf-only,
+    .pdf-layout,
+    .pdf-sidebar,
+    .pdf-main {
         background: #fff !important;
     }
 
-    .page {
+    * {
         box-shadow: none !important;
-        border-radius: 0 !important;
+        text-shadow: none !important;
+    }
+
+    .page {
         margin: 0 !important;
         padding: 0 !important;
+        border-radius: 0 !important;
         max-width: none !important;
     }
 
@@ -356,12 +320,49 @@ body {
     }
 }
 
-/* PDF-only styling */
+/* PDF base */
 .pdf-only {
     max-width: 210mm;
     margin: 0 auto;
-    padding: 0;
     font-size: 12px;
     line-height: 1.35;
     color: #111;
+}
+
+/* PDF header */
+.pdf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10mm 0 6mm;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 6mm;
+}
+
+.pdf-title h1 {
+    margin: 0;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.pdf-subtitle {
+    font-size: 11px;
+    color: #444;
+}
+
+.pdf-contact {
+    font-size: 11px;
+    text-align: right;
+}
+
+/* PDF layout */
+.pdf-layout {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 8mm;
+}
+
+.pdf-sidebar,
+.pdf-main {
+    padding: 0;
 }

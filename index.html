@@ -12,6 +12,48 @@
   </head>
   <body>
 
+ <!-- SCREEN VERSION (pdf view) -->
+    <div class="page pdf-only">
+  <header class="pdf-header">
+    <div class="pdf-title">
+      <h1>Lena Cherchenko</h1>
+      <div class="pdf-subtitle">
+        QA Engineer · Manual & Automation · ISTQB Certified
+      </div>
+    </div>
+
+    <div class="pdf-contact">
+      <div>lenazurich@gmail.com</div>
+      <div>+41 76 588 66 45</div>
+      <div>Zurich, Switzerland</div>
+    </div>
+  </header>
+
+  <div class="pdf-layout">
+    <aside class="pdf-sidebar">
+      <!-- reuse the same content, but without heavy backgrounds -->
+      <section class="section-block">
+        <h3 class="section-title">About me</h3>
+        <p class="about-text">...same text...</p>
+      </section>
+
+      <section class="section-block">
+        <h3 class="section-title">Skills</h3>
+        <!-- same skills -->
+      </section>
+
+      <!-- languages, education, courses -->
+    </aside>
+
+    <main class="pdf-main">
+     <section class="section-block">
+        <h3 class="section-title">Work experience</h3>
+        <!-- same work experience content -->
+      </section>
+    </main>
+  </div>
+</div>
+
 <!-- SCREEN VERSION (website view) -->
 <div class="page screen-only">
   <button class="download-btn" type="button" onclick="downloadPDF()">
@@ -48,7 +90,30 @@
     </main>
   </div>
 </div>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- your current sidebar content -->
+      ...
+    </aside>
 
+    <!-- Main -->
+    <main class="main">
+      <!-- your current main content -->
+      ...
+    </main>
+  </div>
+</div>
+
+<!-- PDF VERSION (print/PDF view) -->
+<div class="page pdf-only">
+  <!-- NOTE: no download button here -->
+
+  <header class="pdf-header">
+    <div class="pdf-title">
+      <h1>Lena Cherchenko</h1>
+      <div class="pdf-subtitle">QA Engineer · Manual & Automation · ISTQB Certified</div>
+    </div>
 <!-- PDF VERSION (print/PDF view) -->
 <div class="page pdf-only">
   <!-- NOTE: no download button here -->
