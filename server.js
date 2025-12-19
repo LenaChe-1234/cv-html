@@ -16,11 +16,9 @@ app.get("/generate-pdf", async (req, res) => {
 
     const page = await browser.newPage();
 
-    // Set an initial viewport BEFORE navigation (safe default)
-    await page.setViewport({ width: 1200, height: 1600, deviceScaleFactor: 2 });
-
     // Load the CV page
-    const url = `http://127.0.0.1:${PORT}/`;
+    const url = `${req.protocol}://${req.get("host")}/`;
+    await page.setViewport({ width: 1200, height: 1600, deviceScaleFactor: 1 });
     await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
 
     // Use print media type to trigger @media print styles (Level 3)
@@ -41,6 +39,7 @@ app.get("/generate-pdf", async (req, res) => {
     const pdfBuffer = await page.pdf({
       format: "A4",
       printBackground: true,
+      scale: 0.85,
       margin: {
         top: "12mm",
         right: "15mm",
