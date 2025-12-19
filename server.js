@@ -1,3 +1,15 @@
+const express = require("express");
+const puppeteer = require("puppeteer");
+const path = require("path");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// Serve static files (index.html, style.css, photo.jpg, etc.)
+app.use(express.static(path.join(__dirname)));
+
 app.get("/generate-pdf", async (req, res) => {
   let browser;
 
@@ -16,25 +28,27 @@ app.get("/generate-pdf", async (req, res) => {
 
     const page = await browser.newPage();
 
-    // Load the CV page
-    const url = `${req.protocol}://${req.get("host")}/`;
+    // Set viewport BEFORE navigation
     await page.setViewport({ width: 1200, height: 1600, deviceScaleFactor: 1 });
+
+    // Prefer public URL on Render
+    const url = `${req.protocol}://${req.get("host")}/`;
     await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
 
-    // Use print media type to trigger @media print styles (Level 3)
+    // Use print media type (Level 3)
     await page.emulateMediaType("print");
 
-    // Wait for the print/PDF layout to be present
+    // Wait for PDF layout
     await page.waitForSelector(".pdf-only", { timeout: 30000 });
 
-    // Wait for fonts to be ready (robust)
+    // Wait for fonts
     await page.evaluate(async () => {
       if (document.fonts && document.fonts.ready) {
         await document.fonts.ready;
       }
     });
 
-    await sleep(200);
+    await sleep(100);
 
     const pdfBuffer = await page.pdf({
       format: "A4",
@@ -65,4 +79,12 @@ app.get("/generate-pdf", async (req, res) => {
 
     res.status(500).send(String(err?.stack || err || "Unknown PDF error"));
   }
+});
+
+// Health check (optional, helps debugging)
+app.get("/health", (req, res) => res.status(200).send("ok"));
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
