@@ -144,6 +144,9 @@ body {
     margin: 20px 0 12px;
     font-size: 14px;
     font-weight: 800;
+    margin: 20px 0 12px;
+    font-size: 14px;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #1e40af;
@@ -279,6 +282,7 @@ body {
 
 /* PRINT / PDF */
 @media print {
+    .screen-only {
     .screen-only {
         display: none !important;
     }
