@@ -62,7 +62,7 @@ body {
 
 /* Header */
 .name-wrapper {
-    background: #14497b;
+    background: #1e4f8a;
     padding: 24px 32px;
     border-radius: 12px;
     display: flex;
@@ -75,10 +75,10 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     background: #fff;
     padding: 2px;
-    border: 3px solid #9cbcec;
+    border: 2px solid #b6cbe6;
 }
 
 .header {
@@ -129,9 +129,10 @@ body {
 
 .sidebar {
     width: 32%;
+    padding-left: 20px;
     padding-right: 20px;
-    border-right: 1px solid #eef2f6;
-    background: #fafbfc;
+    border-right: 1px solid #dbe5ef;
+    background: #edf4fb;
 }
 
 .main {
@@ -149,7 +150,7 @@ body {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #1e40af;
+    color: #2f5f8f;
     border-bottom: 2px solid #e5e7eb;
     padding-bottom: 4px;
 }
@@ -220,6 +221,16 @@ body {
     font-size: 12px;
     margin-top: 6px;
     text-transform: uppercase;
+}
+
+.skill-group .skill-list {
+    margin: 0;
+    padding-left: 0;
+}
+
+.skill-group .skill-list li {
+    margin-bottom: 2px;
+    line-height: 1.3;
 }
 
 /* =========================================================

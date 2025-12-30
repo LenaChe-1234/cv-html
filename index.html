@@ -9,154 +9,392 @@
       content="QA Engineer CV - Manual & Automation Testing, API, Microservices, Integrations"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      @media print {
+        .download-btn {
+          display: none;
+        }
+        body {
+          background: #86caec;
+        }
+        .page {
+          box-shadow: none;
+          margin: 0;
+          max-width: 100%;
+        }
+        .layout {
+          flex-direction: column;
+        }
+        .sidebar,
+        .main {
+          width: 100%;
+          border-right: none;
+          padding: 0;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="page">
+      <!-- <button class="download-btn" onclick="window.print()">
+        Download PDF
+      </button> -->
+      <div class="name-wrapper">
+        <img src="photo.jpg" alt="Profile photo" class="profile-photo" />
+        <header class="header">
+          <div class="name-block">
+            <h1>Lena Cherchenko</h1>
+            <h2>QA Engineer · Manual & Automation · ISTQB Certified</h2>
+          </div>
+          <div class="contact">
+            <div>
+              <a href="mailto:lenazurich@gmail.com">lenazurich@gmail.com</a>
+            </div>
+            <!-- <a
+              class="download-btn"
+              href="https://1drv.ms/b/c/c59d6bcce908499f/IQACxt06QeBgQZgaS-WqPdZkAS7sRgCqYBfz827JHpNA97I?e=yVOjBt"
+              target="_blank"
+            >
+              Download PDF
+            </a> -->
+            <button
+                type="button"
+                class="download-btn"
+                onclick="downloadPDF()"
+                aria-label="Download CV as PDF"
+              >
+                Download PDF
+          </button>
+              <div>+41 76 588 66 45</div>
+            <div>Zurich, Switzerland</div>
+          </div>
+        </header>
+      </div>
 
- <!-- SCREEN VERSION (pdf view) -->
-    <div class="page pdf-only">
-  <header class="pdf-header">
-    <div class="pdf-title">
-      <h1>Lena Cherchenko</h1>
-      <div class="pdf-subtitle">
-        QA Engineer · Manual & Automation · ISTQB Certified
+      <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <section class="section-block">
+            <h3 class="section-title">About me</h3>
+            <p class="about-text">
+              ISTQB-certified Software Tester with a Master’s degree in Business
+              Informatics. Bringing a strong background in credit and risk
+              management, I successfully transitioned into IT and now focus on
+              software testing and test automation. Experienced in
+              microservices, API testing, enterprise integrations, and both
+              manual and automation QA practices.
+            </p>
+          </section>
+
+          <section class="section-block">
+            <h3 class="section-title">Skills</h3>
+
+            <div class="skill-group">
+              <div class="subheading">QA Engineer (Manual &amp; Automation)</div>
+              <ul class="skill-list">
+                <li>Requirements &amp; risk analysis</li>
+                <li>Test design (EP, BVA, Decision Tables)</li>
+                <li>Manual, exploratory &amp; regression testing</li>
+                <li>Test automation (UI &amp; API)</li>
+                <li>Test results analysis &amp; reporting</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <div class="subheading">Automation &amp; Tools</div>
+              <p class="skill-line">
+                Playwright (TypeScript), Selenium, Axios, TestNG
+              </p>
+            </div>
+
+         <div class="skill-group">
+          <div class="subheading">Automation &amp; Tools</div>
+          <p class="skill-line">
+            Playwright (TypeScript), Selenium, Axios, TestNG
+          </p>
+        </div>
+
+            <div class="skill-group">
+              <div class="subheading">Programming</div>
+              <p class="skill-line">Java, JavaScript, TypeScript</p>
+            </div>
+
+        <div class="skill-group">
+          <div class="subheading">CI/CD &amp; DevOps</div>
+          <p class="skill-line">
+            GitHub Actions, TeamCity, Git (branching, code review)
+          </p>
+        </div>
+
+       <div class="skill-group">
+          <div class="subheading">Non-functional Testing</div>
+          <ul class="skill-list">
+            <li>Security</li>
+            <li>Accessibility</li>
+            <li>Performance</li>
+          </ul>
+        </div>
+
+         <div class="skill-group">
+          <div class="subheading">Observability</div>
+          <p class="skill-line">
+            Elasticsearch / Kibana, Grafana / Loki
+          </p>
+        </div>
+
+        <div class="skill-group">
+          <div class="subheading">Soft Skills</div>
+          <ul class="skill-list">
+            <li>Analytical thinking</li>
+            <li>Problem-solving</li>
+            <li>Teamwork</li>
+          </ul>
+        </div>
+
+ 
+          <section class="section-block">
+            <h3 class="section-title">Languages</h3>
+            <ul class="list-plain">
+              <li>English, B2</li>
+              <li>German, B2</li>
+              <li>Russian, Native </li>
+              <li>Ukrainian, Native</li>
+            </ul>
+          </section>
+
+          <section class="section-block">
+            <h3 class="section-title">Education</h3>
+            <div class="subheading">Master in Business Informatics</div>
+            <div class="muted">National Economic University, Kyiv (2002)</div>
+          </section>
+
+          <section class="section-block">
+            <h3 class="section-title">Courses</h3>
+            <ul class="list-plain">
+              <li>ISTQB (CTFL)</li>
+              <li>Test automation Selenium / TestNG (Java)</li>
+              <li>Performance testing (JMeter)</li>
+            </ul>
+          </section>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+          <section class="section-block">
+            <h3 class="section-title">Work experience</h3>
+
+            <article class="experience-item">
+              <header class="exp-header">
+                <div class="exp-title-row">
+                  <span class="exp-title">Automation QA Engineer</span>
+                  <span class="exp-dates">2023 – 2025</span>
+                </div>
+                <div class="exp-meta">
+                  airSlate Inc. · USA / Ukraine · Remote
+                </div>
+              </header>
+
+              <h4 class="exp-subtitle">Key Responsibilities</h4>
+              <ul class="bullets">
+                <li>
+                  Developed and maintained UI and API automated tests using
+                  Playwright and TypeScript.
+                </li>
+                <li>
+                  Collaborated with Core Backend and Integrations teams to
+                  validate microservices and cross-system workflows.
+                </li>
+                <li>
+                  Built automated end-to-end test scenarios covering internal
+                  services and external integrations.
+                </li>
+                <li>
+                  Used Loki and Grafana to analyze logs and pinpoint backend
+                  error origins.
+                </li>
+                <li>
+                  Configured GitHub Actions (YAML workflows) to run automated
+                  suites on schedule, via webhooks, or manually.
+                </li>
+              </ul>
+
+              <h4 class="exp-subtitle">Enterprise Integrations</h4>
+              <ul class="bullets">
+                <li>
+                  Tested and validated integrations with Salesforce, NetSuite,
+                  Google, Microsoft, and other enterprise APIs.
+                </li>
+                <li>
+                  Verified API contracts, authentication flows, and error
+                  handling across distributed microservices.
+                </li>
+                <li>Supported troubleshooting of complex integration flows.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <header class="exp-header">
+                <div class="exp-title-row">
+                  <span class="exp-title">Manual QA Engineer</span>
+                  <span class="exp-dates">2020 – 2023</span>
+                </div>
+                <div class="exp-meta">
+                  airSlate Inc. · USA / Ukraine · Remote
+                </div>
+              </header>
+
+              <h4 class="exp-subtitle">Key Responsibilities</h4>
+              <ul class="bullets">
+                <li>
+                  Performed manual UI and API testing using browser developer
+                  tools and proxy utilities across multiple OS environments.
+                </li>
+                <li>
+                  Worked within a microservices architecture, analyzing service
+                  dependencies and risks.
+                </li>
+                <li>
+                  Investigated defects using Kibana and collaborated with
+                  backend teams to localize issues.
+                </li>
+                <li>
+                  Set up testing environments in TeamCity and maintained version
+                  control with Git.
+                </li>
+                <li>
+                  Created and maintained test cases, test plans, and QA
+                  documentation in TestRail and Allure.
+                </li>
+                <li>Led release testing and prepared QA release notes.</li>
+                <li>
+                  Participated in Agile ceremonies (planning, grooming,
+                  retrospectives).
+                </li>
+                <li>
+                  Performed Black Box and Grey Box testing, using Git code
+                  insights to improve test coverage and identify risk areas.
+                </li>
+              </ul>
+
+              <h4 class="exp-subtitle">
+                Payment Systems &amp; Financial Integrations
+              </h4>
+              <ul class="bullets">
+                <li>
+                  Tested paywalls and payment workflows, including integrations
+                  with Stripe.
+                </li>
+                <li>
+                  Validated subscriptions, billing cycles, refunds, failed
+                  transactions, and error-state behavior.
+                </li>
+                <li>
+                  Developed a strong understanding of payment system compliance,
+                  data flow specifics, and full transaction lifecycle testing.
+                </li>
+              </ul>
+
+              <h4 class="exp-subtitle">Core Backend / API Testing</h4>
+              <ul class="bullets">
+                <li>
+                  Worked with Core backend services and validated microservice
+                  APIs (response structure, authentication, error handling).
+                </li>
+                <li>
+                  Used Postman and internal tools for functional, integration,
+                  and regression API testing.
+                </li>
+                <li>
+                  Ensured backend stability through dependency testing and
+                  cross-service validation.
+                </li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <header class="exp-header">
+                <div class="exp-title-row">
+                  <span class="exp-title">Freelance Software Tester</span>
+                  <span class="exp-dates">2020 – 2021</span>
+                </div>
+                <div class="exp-meta">test IO &amp; uTest · Global, Remote</div>
+              </header>
+
+              <ul class="bullets">
+                <li>
+                  Performed exploratory, smoke, system acceptance, regression,
+                  and end-to-end testing across web and mobile products.
+                </li>
+                <li>
+                  Executed predefined test scenarios and contributed to
+                  improving test coverage.
+                </li>
+                <li>
+                  Analyzed requirements to identify gaps and clarify
+                  expectations.
+                </li>
+                <li>
+                  Designed and executed test cases for functional and
+                  non-functional areas.
+                </li>
+                <li>
+                  Tested mobile and web applications using ADB, Postman, SOAP
+                  UI, and debugging tools.
+                </li>
+                <li>
+                  Gained experience testing gambling applications with
+                  regulatory and compliance requirements.
+                </li>
+                <li>Performed cross-browser and cross-platform testing.</li>
+                <li>
+                  Conducted usability and UX-focused testing to improve product
+                  experience.
+                </li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <header class="exp-header">
+                <div class="exp-title-row">
+                  <span class="exp-title">QA Intern</span>
+                  <span class="exp-dates">2020 – 2021</span>
+                </div>
+                <div class="exp-meta">QA Light · Ukraine</div>
+              </header>
+
+              <ul class="bullets">
+                <li>
+                  Designed and documented test cases based on requirements and
+                  user stories.
+                </li>
+                <li>
+                  Ensured full requirement coverage using a traceability matrix.
+                </li>
+                <li>
+                  Performed manual testing and defect management using Jira.
+                </li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <header class="exp-header">
+                <div class="exp-title-row">
+                  <span class="exp-title">Additional Experience</span>
+                </div>
+                <div class="exp-meta">
+                  Various banks &amp; leasing companies · Ukraine · 2002 – 2010
+                </div>
+              </header>
+              <ul class="bullets">
+                <li>Risk Manager (2006–2010)</li>
+                <li>System Administrator (2002–2003)</li>
+              </ul>
+            </article>
+          </section>
+        </main>
       </div>
     </div>
-
-    <div class="pdf-contact">
-      <div>lenazurich@gmail.com</div>
-      <div>+41 76 588 66 45</div>
-      <div>Zurich, Switzerland</div>
-    </div>
-  </header>
-
-  <div class="pdf-layout">
-    <aside class="pdf-sidebar">
-      <!-- reuse the same content, but without heavy backgrounds -->
-      <section class="section-block">
-        <h3 class="section-title">About me</h3>
-        <p class="about-text">...same text...</p>
-      </section>
-
-      <section class="section-block">
-        <h3 class="section-title">Skills</h3>
-        <!-- same skills -->
-      </section>
-
-      <!-- languages, education, courses -->
-    </aside>
-
-    <main class="pdf-main">
-     <section class="section-block">
-        <h3 class="section-title">Work experience</h3>
-        <!-- same work experience content -->
-      </section>
-    </main>
-  </div>
-</div>
-
-<!-- SCREEN VERSION (website view) -->
-<div class="page screen-only">
-  <button class="download-btn" type="button" onclick="downloadPDF()">
-    Download PDF
-  </button>
-
-  <!-- Everything below here is your current screen CV markup -->
-  <div class="name-wrapper">
-    <img src="photo.jpg" alt="Profile photo" class="profile-photo" />
-    <header class="header">
-      <div class="name-block">
-        <h1>Lena Cherchenko</h1>
-        <h2>QA Engineer · Manual & Automation · ISTQB Certified</h2>
-      </div>
-      <div class="contact">
-        <div><a href="mailto:lenazurich@gmail.com">lenazurich@gmail.com</a></div>
-        <div>+41 76 588 66 45</div>
-        <div>Zurich, Switzerland</div>
-      </div>
-    </header>
-  </div>
-
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <!-- your current sidebar content -->
-      ...
-    </aside>
-
-    <!-- Main -->
-    <main class="main">
-      <!-- your current main content -->
-      ...
-    </main>
-  </div>
-</div>
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <!-- your current sidebar content -->
-      ...
-    </aside>
-
-    <!-- Main -->
-    <main class="main">
-      <!-- your current main content -->
-      ...
-    </main>
-  </div>
-</div>
-
-<!-- PDF VERSION (print/PDF view) -->
-<div class="page pdf-only">
-  <!-- NOTE: no download button here -->
-
-  <header class="pdf-header">
-    <div class="pdf-title">
-      <h1>Lena Cherchenko</h1>
-      <div class="pdf-subtitle">QA Engineer · Manual & Automation · ISTQB Certified</div>
-    </div>
-<!-- PDF VERSION (print/PDF view) -->
-<div class="page pdf-only">
-  <!-- NOTE: no download button here -->
-
-  <header class="pdf-header">
-    <div class="pdf-title">
-      <h1>Lena Cherchenko</h1>
-      <div class="pdf-subtitle">QA Engineer · Manual & Automation · ISTQB Certified</div>
-    </div>
-
-    <div class="pdf-contact">
-      <div>lenazurich@gmail.com</div>
-      <div>+41 76 588 66 45</div>
-      <div>Zurich, Switzerland</div>
-    </div>
-  </header>
-
-  <div class="pdf-layout">
-    <aside class="pdf-sidebar">
-      <!-- reuse the same content, but without heavy backgrounds -->
-      <section class="section-block">
-        <h3 class="section-title">About me</h3>
-        <p class="about-text">...same text...</p>
-      </section>
-
-      <section class="section-block">
-        <h3 class="section-title">Skills</h3>
-        <!-- same skills -->
-      </section>
-
-      <!-- languages, education, courses -->
-    </aside>
-
-    <main class="pdf-main">
-      <section class="section-block">
-        <h3 class="section-title">Work experience</h3>
-        <!-- same work experience content -->
-      </section>
-    </main>
-  </div>
-</div>
-
-    <script>
+     <script>
       async function downloadPDF() {
         try {
           const response = await fetch("/generate-pdf");
