@@ -224,15 +224,26 @@ body {
 }
 
 .skill-group .skill-list {
+    list-style: none;
     margin: 0;
     padding-left: 0;
 }
 
 .skill-group .skill-list li {
+    position: relative;
+    padding-left: 10px;
     margin-bottom: 2px;
     line-height: 1.3;
 }
 
+.skill-group .skill-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: currentColor;
+    font-weight: 600;
+}
 /* =========================================================
    RESPONSIVE (MOBILE)
 ========================================================= */
