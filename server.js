@@ -9,6 +9,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Serve static files (index.html, style.css, photo.jpg, etc.)
 app.use(express.static(path.join(__dirname)));
+app.set("trust proxy", 1);
 
 app.get("/generate-pdf", async (req, res) => {
   let browser;
@@ -32,14 +33,17 @@ app.get("/generate-pdf", async (req, res) => {
     await page.setViewport({ width: 1200, height: 1600, deviceScaleFactor: 1 });
 
     // Prefer public URL on Render
-    const url = `${req.protocol}://${req.get("host")}/`;
+    const proto = req.get("x-forwarded-proto") || req.protocol;
+    const url = `${proto}://${req.get("host")}/`;
     await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
 
-    // Use print media type (Level 3)
-    await page.emulateMediaType("print");
-
-    // Wait for PDF layout
-    await page.waitForSelector(".pdf-only", { timeout: 30000 });
+    await page.waitForFunction(
+      () => {
+        const el = document.querySelector(".pdf-only");
+        return el && el.offsetHeight > 0 && el.innerText.trim().length > 200;
+      },
+      { timeout: 30000 }
+    );
 
     // Wait for fonts
     await page.evaluate(async () => {
