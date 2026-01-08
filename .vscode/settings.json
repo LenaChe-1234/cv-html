@@ -1,0 +1,19 @@
+{
+    /* Basic formatting settings */
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    /* ESLint activation */
+    "eslint.enable": true,
+    "eslint.useFlatConfig": true,
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "html"
+    ],
+    /* Auto-fix errors on save */
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    /* Prettier specific settings */
+    "prettier.requireConfig": false
+}
