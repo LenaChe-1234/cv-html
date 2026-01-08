@@ -1,0 +1,423 @@
+/* =========================================================
+   RESET & BASE
+========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #222;
+    background: #f3f4f6;
+}
+
+/* =========================================================
+   SCREEN LAYOUT (WEB)
+========================================================= */
+
+.page {
+    max-width: 1000px;
+    margin: 24px auto;
+    background: #ffffff;
+    padding: 24px 28px 32px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
+    position: relative;
+}
+
+/* Download button (screen only) */
+.download-btn {
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background: #14497b;
+    cursor: pointer;
+    color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.download-btn:hover {
+    background: #1e5a96;
+    transform: translateY(-1px);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+/* Header */
+.name-wrapper {
+    background: #1e4f8a;
+    padding: 24px 32px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 24px;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #fff;
+    padding: 2px;
+    border: 2px solid #b6cbe6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-grow: 1;
+}
+
+.name-block h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.name-block h2 {
+    margin: 4px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #dbeafe;
+    letter-spacing: 0.14em;
+}
+
+.contact {
+    text-align: right;
+    font-size: 13px;
+    color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.contact a {
+    color: #bfdbfe;
+    text-decoration: none;
+}
+
+/* Main layout */
+.layout {
+    display: flex;
+    gap: 24px;
+}
+
+.sidebar {
+    width: 32%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #dbe5ef;
+    background: #edf4fb;
+}
+
+.main {
+    width: 68%;
+    padding-left: 16px;
+}
+
+/* Sections */
+.section-title {
+    margin: 20px 0 12px;
+    font-size: 14px;
+    font-weight: 800;
+    margin: 20px 0 12px;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2f5f8f;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 4px;
+}
+
+.section-block {
+    margin-bottom: 14px;
+}
+
+.about-text {
+    margin: 0;
+    font-size: 13px;
+    color: #111827;
+    hyphens: auto;
+}
+
+.subheading {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-top: 8px;
+}
+
+.skill-line,
+.list-plain,
+.bullets {
+    font-size: 13px;
+}
+
+.list-plain {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+}
+
+.list-plain li {
+    margin-bottom: 2px;
+}
+
+.muted {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Experience */
+.experience-item {
+    margin-bottom: 16px;
+}
+
+.exp-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.exp-title {
+    font-weight: 600;
+}
+
+.exp-dates,
+.exp-meta {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.exp-subtitle {
+    font-weight: 600;
+    font-size: 12px;
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+
+.skill-group .skill-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.skill-group .skill-list li {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 2px;
+    line-height: 1.3;
+}
+
+.skill-group .skill-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: currentColor;
+    font-weight: 600;
+}
+/* =========================================================
+   RESPONSIVE (MOBILE)
+========================================================= */
+
+@media (max-width: 480px) {
+    .page {
+        margin: 0;
+        padding: 16px;
+        border-radius: 0;
+    }
+
+    .name-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact {
+        align-items: center;
+        text-align: center;
+    }
+
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar,
+    .main {
+        width: 100%;
+        padding: 0;
+        border: none;
+    }
+
+    .download-btn {
+        position: static;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+}
+
+/* =========================================================
+   LEVEL 3 — PDF MODE
+========================================================= */
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+/* Toggle layouts */
+.screen-only {
+    display: block;
+}
+
+.pdf-only {
+    display: none;
+}
+
+/* PRINT / PDF */
+@media print {
+    .screen-only {
+    .screen-only {
+        display: none !important;
+    }
+
+    .pdf-only {
+        display: block !important;
+    }
+
+    html,
+    body,
+    .page,
+    .pdf-only,
+    .pdf-layout,
+    .pdf-sidebar,
+    .pdf-main {
+        background: #fff !important;
+    }
+
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .page {
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        max-width: none !important;
+    }
+
+    .section-block,
+    .experience-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+ /* @media print {
+     .screen-only {
+         display: none !important;
+     }
+
+     .pdf-only {
+         display: block !important;
+     }
+
+     html,
+     body,
+     .page {
+         background: #fff !important;
+     }
+
+     * {
+         box-shadow: none !important;
+         text-shadow: none !important;
+     }
+
+     .page {
+         margin: 0 !important;
+         padding: 0 !important;
+         border-radius: 0 !important;
+         max-width: none !important;
+     }
+
+     .section-block,
+     .experience-item {
+         break-inside: avoid;
+         page-break-inside: avoid;
+     }
+ } */
+
+/* PDF base */
+.pdf-only {
+    max-width: 210mm;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 1.35;
+    color: #111;
+}
+
+/* PDF header */
+.pdf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10mm 0 6mm;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 6mm;
+}
+
+.pdf-title h1 {
+    margin: 0;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.pdf-subtitle {
+    font-size: 11px;
+    color: #444;
+}
+
+.pdf-contact {
+    font-size: 11px;
+    text-align: right;
+}
+
+/* PDF layout */
+.pdf-layout {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 8mm;
+}
+
+.pdf-sidebar,
+.pdf-main {
+    padding: 0;
+}
