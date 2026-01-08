@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,12 +9,10 @@
       content="QA Engineer CV - Manual & Automation Testing, API, Microservices, Integrations"
     />
     <link rel="stylesheet" href="style.css" />
-    <style>
-    </style>
+    <style></style>
   </head>
   <body>
     <div class="page">
-
       <div class="name-wrapper">
         <img src="photo.jpg" alt="Profile photo" class="profile-photo" />
         <header class="header">
@@ -34,14 +32,15 @@
               Download PDF
             </a> -->
             <button
-                type="button"
-                class="download-btn"
-                onclick="downloadPDF()"
-                aria-label="Download CV as PDF"
-              >
-                Download PDF
-          </button>
-              <div>+41 76 588 66 45</div>
+              type="button"
+              class="download-btn"
+              onclick="downloadPDF(this)"
+              aria-label="Download CV as PDF"
+            >
+              <span class="btn-text">Download PDF</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <div>+41 76 588 66 45</div>
             <div>Zurich, Switzerland</div>
           </div>
         </header>
@@ -53,12 +52,11 @@
           <section class="section-block">
             <h3 class="section-title">About me</h3>
             <p class="about-text">
-              ISTQB-certified Software Tester with a Master’s degree in Business
-              Informatics. Bringing a strong background in credit and risk
-              management, I successfully transitioned into IT and now focus on
-              software testing and test automation. Experienced in
-              microservices, API testing, enterprise integrations, and both
-              manual and automation QA practices.
+              ISTQB-certified Software Tester with a Master’s degree in Business Informatics.
+              Bringing a strong background in credit and risk management, I successfully
+              transitioned into IT and now focus on software testing and test automation.
+              Experienced in microservices, API testing, enterprise integrations, and both manual
+              and automation QA practices.
             </p>
           </section>
 
@@ -78,62 +76,54 @@
 
             <div class="skill-group">
               <div class="subheading">Automation &amp; Tools</div>
-              <p class="skill-line">
-                Playwright (TypeScript), Selenium, Axios, TestNG
-              </p>
+              <p class="skill-line">Playwright (TypeScript), Selenium, Axios, TestNG</p>
             </div>
 
-         <div class="skill-group">
-          <div class="subheading">Automation &amp; Tools</div>
-          <p class="skill-line">
-            Playwright (TypeScript), Selenium, Axios, TestNG
-          </p>
-        </div>
+            <div class="skill-group">
+              <div class="subheading">Automation &amp; Tools</div>
+              <p class="skill-line">Playwright (TypeScript), Selenium, Axios, TestNG</p>
+            </div>
 
             <div class="skill-group">
               <div class="subheading">Programming</div>
               <p class="skill-line">Java, JavaScript, TypeScript</p>
             </div>
 
-        <div class="skill-group">
-          <div class="subheading">CI/CD &amp; DevOps</div>
-          <p class="skill-line">
-            GitHub Actions, TeamCity, Git (branching, code review)
-          </p>
-        </div>
+            <div class="skill-group">
+              <div class="subheading">CI/CD &amp; DevOps</div>
+              <p class="skill-line">GitHub Actions, TeamCity, Git (branching, code review)</p>
+            </div>
 
-       <div class="skill-group">
-          <div class="subheading">Non-functional Testing</div>
-          <ul class="skill-list">
-            <li>Security</li>
-            <li>Accessibility</li>
-            <li>Performance</li>
-          </ul>
-        </div>
+            <div class="skill-group">
+              <div class="subheading">Non-functional Testing</div>
+              <ul class="skill-list">
+                <li>Security</li>
+                <li>Accessibility</li>
+                <li>Performance</li>
+              </ul>
+            </div>
 
-         <div class="skill-group">
-          <div class="subheading">Observability</div>
-          <p class="skill-line">
-            Elasticsearch / Kibana, Grafana / Loki
-          </p>
-        </div>
+            <div class="skill-group">
+              <div class="subheading">Observability</div>
+              <p class="skill-line">Elasticsearch / Kibana, Grafana / Loki</p>
+            </div>
 
-        <div class="skill-group">
-          <div class="subheading">Soft Skills</div>
-          <ul class="skill-list">
-            <li>Analytical thinking</li>
-            <li>Problem-solving</li>
-            <li>Teamwork</li>
-          </ul>
-        </div>
+            <div class="skill-group">
+              <div class="subheading">Soft Skills</div>
+              <ul class="skill-list">
+                <li>Analytical thinking</li>
+                <li>Problem-solving</li>
+                <li>Teamwork</li>
+              </ul>
+            </div>
+          </section>
 
- 
           <section class="section-block">
             <h3 class="section-title">Languages</h3>
             <ul class="list-plain">
               <li>English, B2</li>
               <li>German, B2</li>
-              <li>Russian, Native </li>
+              <li>Russian, Native</li>
               <li>Ukrainian, Native</li>
             </ul>
           </section>
@@ -165,44 +155,39 @@
                   <span class="exp-title">Automation QA Engineer</span>
                   <span class="exp-dates">2023 – 2025</span>
                 </div>
-                <div class="exp-meta">
-                  airSlate Inc. · USA / Ukraine · Remote
-                </div>
+                <div class="exp-meta">airSlate Inc. · USA / Ukraine · Remote</div>
               </header>
 
               <h4 class="exp-subtitle">Key Responsibilities</h4>
               <ul class="bullets">
                 <li>
-                  Developed and maintained UI and API automated tests using
-                  Playwright and TypeScript.
+                  Developed and maintained UI and API automated tests using Playwright and
+                  TypeScript.
                 </li>
                 <li>
-                  Collaborated with Core Backend and Integrations teams to
-                  validate microservices and cross-system workflows.
+                  Collaborated with Core Backend and Integrations teams to validate microservices
+                  and cross-system workflows.
                 </li>
                 <li>
-                  Built automated end-to-end test scenarios covering internal
-                  services and external integrations.
+                  Built automated end-to-end test scenarios covering internal services and external
+                  integrations.
                 </li>
+                <li>Used Loki and Grafana to analyze logs and pinpoint backend error origins.</li>
                 <li>
-                  Used Loki and Grafana to analyze logs and pinpoint backend
-                  error origins.
-                </li>
-                <li>
-                  Configured GitHub Actions (YAML workflows) to run automated
-                  suites on schedule, via webhooks, or manually.
+                  Configured GitHub Actions (YAML workflows) to run automated suites on schedule,
+                  via webhooks, or manually.
                 </li>
               </ul>
 
               <h4 class="exp-subtitle">Enterprise Integrations</h4>
               <ul class="bullets">
                 <li>
-                  Tested and validated integrations with Salesforce, NetSuite,
-                  Google, Microsoft, and other enterprise APIs.
+                  Tested and validated integrations with Salesforce, NetSuite, Google, Microsoft,
+                  and other enterprise APIs.
                 </li>
                 <li>
-                  Verified API contracts, authentication flows, and error
-                  handling across distributed microservices.
+                  Verified API contracts, authentication flows, and error handling across
+                  distributed microservices.
                 </li>
                 <li>Supported troubleshooting of complex integration flows.</li>
               </ul>
@@ -214,75 +199,63 @@
                   <span class="exp-title">Manual QA Engineer</span>
                   <span class="exp-dates">2020 – 2023</span>
                 </div>
-                <div class="exp-meta">
-                  airSlate Inc. · USA / Ukraine · Remote
-                </div>
+                <div class="exp-meta">airSlate Inc. · USA / Ukraine · Remote</div>
               </header>
 
               <h4 class="exp-subtitle">Key Responsibilities</h4>
               <ul class="bullets">
                 <li>
-                  Performed manual UI and API testing using browser developer
-                  tools and proxy utilities across multiple OS environments.
+                  Performed manual UI and API testing using browser developer tools and proxy
+                  utilities across multiple OS environments.
                 </li>
                 <li>
-                  Worked within a microservices architecture, analyzing service
-                  dependencies and risks.
+                  Worked within a microservices architecture, analyzing service dependencies and
+                  risks.
                 </li>
                 <li>
-                  Investigated defects using Kibana and collaborated with
-                  backend teams to localize issues.
+                  Investigated defects using Kibana and collaborated with backend teams to localize
+                  issues.
                 </li>
                 <li>
-                  Set up testing environments in TeamCity and maintained version
-                  control with Git.
+                  Set up testing environments in TeamCity and maintained version control with Git.
                 </li>
                 <li>
-                  Created and maintained test cases, test plans, and QA
-                  documentation in TestRail and Allure.
+                  Created and maintained test cases, test plans, and QA documentation in TestRail
+                  and Allure.
                 </li>
                 <li>Led release testing and prepared QA release notes.</li>
+                <li>Participated in Agile ceremonies (planning, grooming, retrospectives).</li>
                 <li>
-                  Participated in Agile ceremonies (planning, grooming,
-                  retrospectives).
-                </li>
-                <li>
-                  Performed Black Box and Grey Box testing, using Git code
-                  insights to improve test coverage and identify risk areas.
+                  Performed Black Box and Grey Box testing, using Git code insights to improve test
+                  coverage and identify risk areas.
                 </li>
               </ul>
 
-              <h4 class="exp-subtitle">
-                Payment Systems &amp; Financial Integrations
-              </h4>
+              <h4 class="exp-subtitle">Payment Systems &amp; Financial Integrations</h4>
               <ul class="bullets">
+                <li>Tested paywalls and payment workflows, including integrations with Stripe.</li>
                 <li>
-                  Tested paywalls and payment workflows, including integrations
-                  with Stripe.
+                  Validated subscriptions, billing cycles, refunds, failed transactions, and
+                  error-state behavior.
                 </li>
                 <li>
-                  Validated subscriptions, billing cycles, refunds, failed
-                  transactions, and error-state behavior.
-                </li>
-                <li>
-                  Developed a strong understanding of payment system compliance,
-                  data flow specifics, and full transaction lifecycle testing.
+                  Developed a strong understanding of payment system compliance, data flow
+                  specifics, and full transaction lifecycle testing.
                 </li>
               </ul>
 
               <h4 class="exp-subtitle">Core Backend / API Testing</h4>
               <ul class="bullets">
                 <li>
-                  Worked with Core backend services and validated microservice
-                  APIs (response structure, authentication, error handling).
+                  Worked with Core backend services and validated microservice APIs (response
+                  structure, authentication, error handling).
                 </li>
                 <li>
-                  Used Postman and internal tools for functional, integration,
-                  and regression API testing.
+                  Used Postman and internal tools for functional, integration, and regression API
+                  testing.
                 </li>
                 <li>
-                  Ensured backend stability through dependency testing and
-                  cross-service validation.
+                  Ensured backend stability through dependency testing and cross-service validation.
                 </li>
               </ul>
             </article>
@@ -298,34 +271,24 @@
 
               <ul class="bullets">
                 <li>
-                  Performed exploratory, smoke, system acceptance, regression,
-                  and end-to-end testing across web and mobile products.
+                  Performed exploratory, smoke, system acceptance, regression, and end-to-end
+                  testing across web and mobile products.
                 </li>
                 <li>
-                  Executed predefined test scenarios and contributed to
-                  improving test coverage.
+                  Executed predefined test scenarios and contributed to improving test coverage.
+                </li>
+                <li>Analyzed requirements to identify gaps and clarify expectations.</li>
+                <li>Designed and executed test cases for functional and non-functional areas.</li>
+                <li>
+                  Tested mobile and web applications using ADB, Postman, SOAP UI, and debugging
+                  tools.
                 </li>
                 <li>
-                  Analyzed requirements to identify gaps and clarify
-                  expectations.
-                </li>
-                <li>
-                  Designed and executed test cases for functional and
-                  non-functional areas.
-                </li>
-                <li>
-                  Tested mobile and web applications using ADB, Postman, SOAP
-                  UI, and debugging tools.
-                </li>
-                <li>
-                  Gained experience testing gambling applications with
-                  regulatory and compliance requirements.
+                  Gained experience testing gambling applications with regulatory and compliance
+                  requirements.
                 </li>
                 <li>Performed cross-browser and cross-platform testing.</li>
-                <li>
-                  Conducted usability and UX-focused testing to improve product
-                  experience.
-                </li>
+                <li>Conducted usability and UX-focused testing to improve product experience.</li>
               </ul>
             </article>
 
@@ -339,16 +302,9 @@
               </header>
 
               <ul class="bullets">
-                <li>
-                  Designed and documented test cases based on requirements and
-                  user stories.
-                </li>
-                <li>
-                  Ensured full requirement coverage using a traceability matrix.
-                </li>
-                <li>
-                  Performed manual testing and defect management using Jira.
-                </li>
+                <li>Designed and documented test cases based on requirements and user stories.</li>
+                <li>Ensured full requirement coverage using a traceability matrix.</li>
+                <li>Performed manual testing and defect management using Jira.</li>
               </ul>
             </article>
 
@@ -370,28 +326,59 @@
         </main>
       </div>
     </div>
-     <script>
-      async function downloadPDF() {
-        try {
-          const response = await fetch("/generate-pdf");
+    <script>
+      async function downloadPDF(btn) {
+        const textEl = btn?.querySelector('.btn-text');
+        const spinnerEl = btn?.querySelector('.btn-spinner');
 
-          if (!response.ok) {
-            const text = await response.text().catch(() => "");
-            alert(`Error generating PDF: ${response.status}\n${text}`);
+        try {
+          // UI: loading on
+          if (btn) btn.disabled = true;
+          if (btn) btn.setAttribute('aria-busy', 'true');
+          if (textEl) textEl.textContent = 'Generating…';
+          if (spinnerEl) spinnerEl.style.display = 'inline-block';
+
+          const targetUrl = window.location.href;
+          const response = await fetch('/generate-pdf?url=' + encodeURIComponent(targetUrl), {
+            cache: 'no-store',
+          });
+
+          const ct = response.headers.get('content-type') || '';
+          if (!response.ok || !ct.includes('application/pdf')) {
+            const text = await response.text().catch(() => '');
+            alert(`Server did not return a PDF.\nStatus: ${response.status}\n${text}`);
             return;
           }
 
           const blob = await response.blob();
-          const url = window.URL.createObjectURL(blob);
 
-          const a = document.createElement("a");
+          // sanity check: PDF magic header
+          const head = await blob
+            .slice(0, 5)
+            .text()
+            .catch(() => '');
+          if (head !== '%PDF-') {
+            const t = await response.text().catch(() => '');
+            alert('Downloaded file is not a valid PDF.');
+            return;
+          }
+
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
           a.href = url;
-          a.download = "cv.pdf";
+          a.download = 'cv.pdf';
+          document.body.appendChild(a);
           a.click();
-
-          window.URL.revokeObjectURL(url);
+          a.remove();
+          URL.revokeObjectURL(url);
         } catch (e) {
           alert(`Request failed: ${e?.message || e}`);
+        } finally {
+          // UI: loading off
+          if (spinnerEl) spinnerEl.style.display = 'none';
+          if (textEl) textEl.textContent = 'Download PDF';
+          if (btn) btn.removeAttribute('aria-busy');
+          if (btn) btn.disabled = false;
         }
       }
     </script>
