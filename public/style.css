@@ -341,6 +341,39 @@ body {
         page-break-inside: avoid;
     }
 }
+ /* @media print {
+     .screen-only {
+         display: none !important;
+     }
+
+     .pdf-only {
+         display: block !important;
+     }
+
+     html,
+     body,
+     .page {
+         background: #fff !important;
+     }
+
+     * {
+         box-shadow: none !important;
+         text-shadow: none !important;
+     }
+
+     .page {
+         margin: 0 !important;
+         padding: 0 !important;
+         border-radius: 0 !important;
+         max-width: none !important;
+     }
+
+     .section-block,
+     .experience-item {
+         break-inside: avoid;
+         page-break-inside: avoid;
+     }
+ } */
 
 /* PDF base */
 .pdf-only {
