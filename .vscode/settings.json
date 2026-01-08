@@ -2,7 +2,14 @@
     /* Basic formatting settings */
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    /* ESLint activation */
+    /* Specific overrides to ensure Prettier wins */
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    /* ESLint activation (Flat Config standard 2026) */
     "eslint.enable": true,
     "eslint.useFlatConfig": true,
     "eslint.validate": [
@@ -10,10 +17,14 @@
         "typescript",
         "html"
     ],
-    /* Auto-fix errors on save */
+    /* Auto-fix logic errors, but let Prettier handle layout */
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
-    /* Prettier specific settings */
-    "prettier.requireConfig": false
+    /* Prettier settings */
+    "prettier.requireConfig": false,
+    "prettier.enable": true,
+    /* Disable ESLint formatting to avoid conflicts with Prettier */
+    "eslint.format.enable": false,
+    "notebook.defaultFormatter": "esbenp.prettier-vscode"
 }
