@@ -24,7 +24,7 @@ body {
     max-width: 1000px;
     margin: 24px auto;
     background: #ffffff;
-    padding: 24px 28px 32px;
+    padding: 20px 24px 24px;
     box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
     border-radius: 12px;
     position: relative;
@@ -83,12 +83,12 @@ body {
 /* Header */
 .name-wrapper {
     background: #1e4f8a;
-    padding: 24px 32px;
+    padding: 20px 24px;
     border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 32px;
-    margin-bottom: 24px;
+    gap: 24px;
+    margin-bottom: 18px;
 }
 
 .profile-photo {
@@ -162,7 +162,7 @@ body {
 
 /* Sections */
 .section-title {
-    margin: 20px 0 12px;
+    margin: 14px 0 8px;
     font-size: 14px;
     font-weight: 800;
     text-transform: uppercase;
@@ -173,12 +173,13 @@ body {
 }
 
 .section-block {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .about-text {
     margin: 0;
     font-size: 13px;
+    line-height: 1.4;
     color: #111827;
     hyphens: auto;
 }
@@ -188,7 +189,7 @@ body {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.09em;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 .skill-line,
@@ -214,7 +215,7 @@ body {
 
 /* Experience */
 .experience-item {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .exp-title-row {
@@ -236,36 +237,38 @@ body {
 .exp-subtitle {
     font-weight: 600;
     font-size: 12px;
-    margin-top: 6px;
+    margin: 5px 0 4px;
     text-transform: uppercase;
 }
 
 .project-list {
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 }
 
 .project-link-item {
     list-style: none;
-    margin: 12px 0 0;
-    padding: 12px 14px;
-    border-left: 4px solid #2f5f8f;
-    background: linear-gradient(90deg, #eef5fc 0%, #f8fbff 100%);
-    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 0;
+    padding: 8px 10px;
+    border-left: 3px solid #2f5f8f;
+    background: #f4f8fc;
+    border-radius: 8px;
 }
 
 .project-link-label {
-    display: block;
-    margin-bottom: 6px;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #4b5563;
+    white-space: nowrap;
 }
 
 .project-link {
     display: inline-block;
-    padding: 7px 12px;
+    padding: 5px 10px;
     border-radius: 999px;
     background: #14497b;
     color: #ffffff !important;
@@ -297,16 +300,26 @@ body {
     text-decoration: underline;
 }
 
+.bullets {
+    margin: 4px 0 0;
+    padding-left: 18px;
+}
+
+.bullets li {
+    margin-bottom: 3px;
+    line-height: 1.25;
+}
+
 .skill-group .skill-list {
     list-style: none;
-    margin: 0;
+    margin: 2px 0 0;
     padding-left: 0;
 }
 
 .skill-group .skill-list li {
     position: relative;
     padding-left: 10px;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     line-height: 1.3;
 }
 
@@ -358,7 +371,9 @@ body {
     }
 
     .project-link-item {
-        padding: 10px 12px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 8px 10px;
     }
 }
 
