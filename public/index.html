@@ -9,7 +9,6 @@
       content="QA Engineer CV - Manual & Automation Testing, API, Microservices, Integrations"
     />
     <link rel="stylesheet" href="style.css" />
-    <style></style>
   </head>
   <body>
     <div class="page">
@@ -24,13 +23,6 @@
             <div>
               <a href="mailto:lenazurich@gmail.com">lenazurich@gmail.com</a>
             </div>
-            <!-- <a
-              class="download-btn"
-              href="https://1drv.ms/b/c/c59d6bcce908499f/IQACxt06QeBgQZgaS-WqPdZkAS7sRgCqYBfz827JHpNA97I?e=yVOjBt"
-              target="_blank"
-            >
-              Download PDF
-            </a> -->
             <button
               type="button"
               class="download-btn"
@@ -80,8 +72,10 @@
             </div>
 
             <div class="skill-group">
-              <div class="subheading">Automation &amp; Tools</div>
-              <p class="skill-line">Playwright (TypeScript), Selenium, Axios, TestNG</p>
+              <div class="subheading">Test Framework Design</div>
+              <p class="skill-line">
+                Project setup, scalable test structure, fixtures, reusable utilities
+              </p>
             </div>
 
             <div class="skill-group">
@@ -97,7 +91,7 @@
             <div class="skill-group">
               <div class="subheading">Non-functional Testing</div>
               <ul class="skill-list">
-                <li>Security</li>
+                <li>Security testing (OWASP ZAP, PortSwigger/Burp Suite)</li>
                 <li>Accessibility</li>
                 <li>Performance</li>
               </ul>
@@ -114,6 +108,8 @@
                 <li>Analytical thinking</li>
                 <li>Problem-solving</li>
                 <li>Teamwork</li>
+                <li>Cross-team collaboration</li>
+                <li>Parallel development workflow</li>
               </ul>
             </div>
           </section>
@@ -165,6 +161,10 @@
                   TypeScript.
                 </li>
                 <li>
+                  Designed automation project structure, reusable helpers, fixtures, and test data
+                  flows to keep the suite maintainable as coverage grew.
+                </li>
+                <li>
                   Collaborated with Core Backend and Integrations teams to validate microservices
                   and cross-system workflows.
                 </li>
@@ -176,6 +176,29 @@
                 <li>
                   Configured GitHub Actions (YAML workflows) to run automated suites on schedule,
                   via webhooks, or manually.
+                </li>
+                <li>
+                  Worked with Git-based parallel development workflows, code reviews, and branch
+                  coordination to keep automation changes aligned with ongoing product development.
+                </li>
+              </ul>
+
+              <h4 class="exp-subtitle">Automation Project</h4>
+              <ul class="bullets">
+                <li>
+                  Built an end-to-end Playwright automation project for OWASP Juice Shop covering
+                  UI flows, API checks, and realistic user scenarios.
+                </li>
+                <li>
+                  Set up project architecture, test organization, reusable components, and CI
+                  execution flow from scratch.
+                </li>
+                <li>
+                  Used OWASP ZAP and PortSwigger tools to explore security testing scenarios and
+                  identify common web application vulnerabilities in a practice environment.
+                </li>
+                <li>
+                  Project: <a href="https://github.com/LenaChe-1234/qa-juice-shop">qa-juice-shop</a>
                 </li>
               </ul>
 
@@ -358,7 +381,6 @@
             .text()
             .catch(() => '');
           if (head !== '%PDF-') {
-            const t = await response.text().catch(() => '');
             alert('Downloaded file is not a valid PDF.');
             return;
           }
