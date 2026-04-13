@@ -113,7 +113,7 @@ app.get('/generate-pdf', async (req: Request, res: Response) => {
       format: 'A4',
       printBackground: true,
       preferCSSPageSize: true,
-      margin: { top: '12mm', right: '15mm', bottom: '12mm', left: '15mm' },
+      margin: { top: '10mm', right: '12mm', bottom: '10mm', left: '12mm' },
     });
 
     // Convert to Buffer for checks + reliable sending
