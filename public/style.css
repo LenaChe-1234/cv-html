@@ -76,10 +76,6 @@ body {
   animation: spin 0.8s linear infinite;
 }
 
-.download-btn.is-loading .btn-spinner {
-  display: inline-block;
-}
-
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
@@ -169,9 +165,6 @@ body {
     margin: 20px 0 12px;
     font-size: 14px;
     font-weight: 800;
-    margin: 20px 0 12px;
-    font-size: 14px;
-    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #2f5f8f;
@@ -245,6 +238,16 @@ body {
     font-size: 12px;
     margin-top: 6px;
     text-transform: uppercase;
+}
+
+.bullets a {
+    color: #14497b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bullets a:hover {
+    text-decoration: underline;
 }
 
 .skill-group .skill-list {
@@ -329,7 +332,6 @@ body {
 /* PRINT / PDF */
 @media print {
     .screen-only {
-    .screen-only {
         display: none !important;
     }
 
@@ -365,39 +367,6 @@ body {
         page-break-inside: avoid;
     }
 }
- /* @media print {
-     .screen-only {
-         display: none !important;
-     }
-
-     .pdf-only {
-         display: block !important;
-     }
-
-     html,
-     body,
-     .page {
-         background: #fff !important;
-     }
-
-     * {
-         box-shadow: none !important;
-         text-shadow: none !important;
-     }
-
-     .page {
-         margin: 0 !important;
-         padding: 0 !important;
-         border-radius: 0 !important;
-         max-width: none !important;
-     }
-
-     .section-block,
-     .experience-item {
-         break-inside: avoid;
-         page-break-inside: avoid;
-     }
- } */
 
 /* PDF base */
 .pdf-only {
