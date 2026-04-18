@@ -27,9 +27,9 @@
               type="button"
               class="download-btn"
               onclick="downloadPDF(this)"
-              aria-label="Download CV as PDF"
+              aria-label="Save CV as PDF"
             >
-              <span class="btn-text">Download PDF</span>
+              <span class="btn-text">Save as PDF</span>
               <span class="btn-spinner" aria-hidden="true"></span>
             </button>
             <div>+41 76 588 66 45</div>
@@ -353,59 +353,43 @@
       </div>
     </div>
     <script>
-      async function downloadPDF(btn) {
+      function downloadPDF(btn) {
+        const textEl = btn?.querySelector('.btn-text');
+        const spinnerEl = btn?.querySelector('.btn-spinner');
+        const restore = () => {
+          if (spinnerEl) spinnerEl.style.display = 'none';
+          if (textEl) textEl.textContent = 'Save as PDF';
+          if (btn) btn.removeAttribute('aria-busy');
+          if (btn) btn.disabled = false;
+        };
+
+        try {
+          if (btn) btn.disabled = true;
+          if (btn) btn.setAttribute('aria-busy', 'true');
+          if (textEl) textEl.textContent = 'Opening print dialog...';
+          if (spinnerEl) spinnerEl.style.display = 'inline-block';
+
+          // Let the browser open its native print dialog so the user can save to PDF.
+          window.setTimeout(() => {
+            window.print();
+            window.setTimeout(restore, 300);
+          }, 50);
+        } catch (e) {
+          restore();
+          alert(`Could not open the print dialog.\n${e?.message || e}`);
+        }
+      }
+
+      window.addEventListener('afterprint', () => {
+        const btn = document.querySelector('.download-btn');
         const textEl = btn?.querySelector('.btn-text');
         const spinnerEl = btn?.querySelector('.btn-spinner');
 
-        try {
-          // UI: loading on
-          if (btn) btn.disabled = true;
-          if (btn) btn.setAttribute('aria-busy', 'true');
-          if (textEl) textEl.textContent = 'Generating…';
-          if (spinnerEl) spinnerEl.style.display = 'inline-block';
-
-          const targetUrl = window.location.href;
-          const response = await fetch('/generate-pdf?url=' + encodeURIComponent(targetUrl), {
-            cache: 'no-store',
-          });
-
-          const ct = response.headers.get('content-type') || '';
-          if (!response.ok || !ct.includes('application/pdf')) {
-            const text = await response.text().catch(() => '');
-            alert(`Server did not return a PDF.\nStatus: ${response.status}\n${text}`);
-            return;
-          }
-
-          const blob = await response.blob();
-
-          // sanity check: PDF magic header
-          const head = await blob
-            .slice(0, 5)
-            .text()
-            .catch(() => '');
-          if (head !== '%PDF-') {
-            alert('Downloaded file is not a valid PDF.');
-            return;
-          }
-
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'cv.pdf';
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-          URL.revokeObjectURL(url);
-        } catch (e) {
-          alert(`Request failed: ${e?.message || e}`);
-        } finally {
-          // UI: loading off
-          if (spinnerEl) spinnerEl.style.display = 'none';
-          if (textEl) textEl.textContent = 'Download PDF';
-          if (btn) btn.removeAttribute('aria-busy');
-          if (btn) btn.disabled = false;
-        }
-      }
+        if (spinnerEl) spinnerEl.style.display = 'none';
+        if (textEl) textEl.textContent = 'Save as PDF';
+        if (btn) btn.removeAttribute('aria-busy');
+        if (btn) btn.disabled = false;
+      });
     </script>
   </body>
 </html>

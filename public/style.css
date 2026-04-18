@@ -397,6 +397,10 @@ body {
 
 /* PRINT / PDF */
 @media print {
+    .download-btn {
+        display: none !important;
+    }
+
     .screen-only {
         display: none !important;
     }
