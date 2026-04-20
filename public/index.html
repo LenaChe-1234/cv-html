@@ -27,9 +27,9 @@
               type="button"
               class="download-btn"
               onclick="downloadPDF(this)"
-              aria-label="Download CV as PDF"
+              aria-label="Save CV as PDF"
             >
-              <span class="btn-text">Download PDF</span>
+              <span class="btn-text">Save as PDF</span>
               <span class="btn-spinner" aria-hidden="true"></span>
             </button>
             <div>+41 76 588 66 45</div>
@@ -197,10 +197,27 @@
                   Used OWASP ZAP and PortSwigger tools to explore security testing scenarios and
                   identify common web application vulnerabilities in a practice environment.
                 </li>
-                <li>
-                  Project: <a href="https://github.com/LenaChe-1234/qa-juice-shop">qa-juice-shop</a>
-                </li>
               </ul>
+
+              <div class="project-card">
+                <div class="project-card-label">Featured project</div>
+                <div class="project-card-title">qa-juice-shop</div>
+                <a
+                  class="project-link-btn"
+                  href="https://github.com/LenaChe-1234/qa-juice-shop"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="project-link-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path
+                        d="M12 2C6.48 2 2 6.58 2 12.22c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.87-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .08 1.53 1.05 1.53 1.05.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.11.39-2.01 1.03-2.72-.1-.26-.45-1.32.1-2.76 0 0 .84-.27 2.75 1.04A9.3 9.3 0 0 1 12 6.84c.85 0 1.71.12 2.51.36 1.91-1.31 2.75-1.04 2.75-1.04.55 1.44.2 2.5.1 2.76.64.71 1.03 1.61 1.03 2.72 0 3.92-2.34 4.79-4.57 5.05.36.32.68.95.68 1.92 0 1.38-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"
+                      />
+                    </svg>
+                  </span>
+                  <span>View GitHub project</span>
+                </a>
+              </div>
 
               <h4 class="exp-subtitle">Enterprise Integrations</h4>
               <ul class="bullets">
@@ -358,47 +375,16 @@
           // UI: loading on
           if (btn) btn.disabled = true;
           if (btn) btn.setAttribute('aria-busy', 'true');
-          if (textEl) textEl.textContent = 'Generating…';
+          if (textEl) textEl.textContent = 'Preparing PDF...';
           if (spinnerEl) spinnerEl.style.display = 'inline-block';
-
-          const targetUrl = window.location.href;
-          const response = await fetch('/generate-pdf?url=' + encodeURIComponent(targetUrl), {
-            cache: 'no-store',
-          });
-
-          const ct = response.headers.get('content-type') || '';
-          if (!response.ok || !ct.includes('application/pdf')) {
-            const text = await response.text().catch(() => '');
-            alert(`Server did not return a PDF.\nStatus: ${response.status}\n${text}`);
-            return;
-          }
-
-          const blob = await response.blob();
-
-          // sanity check: PDF magic header
-          const head = await blob
-            .slice(0, 5)
-            .text()
-            .catch(() => '');
-          if (head !== '%PDF-') {
-            alert('Downloaded file is not a valid PDF.');
-            return;
-          }
-
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'cv.pdf';
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-          URL.revokeObjectURL(url);
+          await new Promise((resolve) => window.requestAnimationFrame(resolve));
+          window.print();
         } catch (e) {
           alert(`Request failed: ${e?.message || e}`);
         } finally {
           // UI: loading off
           if (spinnerEl) spinnerEl.style.display = 'none';
-          if (textEl) textEl.textContent = 'Download PDF';
+          if (textEl) textEl.textContent = 'Save as PDF';
           if (btn) btn.removeAttribute('aria-busy');
           if (btn) btn.disabled = false;
         }

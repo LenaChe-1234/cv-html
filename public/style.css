@@ -82,23 +82,30 @@ body {
 
 /* Header */
 .name-wrapper {
-    background: #1e4f8a;
+    background:
+        linear-gradient(135deg, rgba(17, 56, 99, 0.9) 0%, rgba(27, 87, 141, 0.84) 55%, rgba(38, 108, 168, 0.78) 100%),
+        url('https://media.licdn.com/dms/image/v2/C4D16AQFbX0O7pnQt-g/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1605003356372?e=1778112000&v=beta&t=oWh6lDZhLhmNMPqtYcGkX1EAFhoguT0bmC5ywa6wF4o')
+            center/cover no-repeat;
     padding: 24px 32px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     gap: 32px;
     margin-bottom: 24px;
+    overflow: hidden;
 }
 
 .profile-photo {
-    width: 120px;
-    height: 120px;
+    width: 112px;
+    height: 112px;
+    flex-shrink: 0;
     border-radius: 50%;
-    object-fit: contain;
-    background: #fff;
-    padding: 2px;
-    border: 2px solid #b6cbe6;
+    object-fit: cover;
+    object-position: center top;
+    background: #ffffff;
+    padding: 3px;
+    border: 2px solid rgba(255, 255, 255, 0.88);
+    box-shadow: 0 8px 18px rgba(8, 24, 44, 0.22);
 }
 
 .header {
@@ -240,6 +247,72 @@ body {
     text-transform: uppercase;
 }
 
+.project-card {
+    margin: 10px 0 14px;
+    padding: 12px 14px;
+    border: 1px solid #d5e2ef;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #f8fbff 0%, #eef5fc 100%);
+}
+
+.project-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #4b6f93;
+    margin-bottom: 4px;
+}
+
+.project-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #123a63;
+    margin-bottom: 10px;
+}
+
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #14497b;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 12px rgba(20, 73, 123, 0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease,
+        opacity 0.18s ease;
+}
+
+.project-link-btn:hover {
+    background: #1b5c97;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(20, 73, 123, 0.24);
+}
+
+.project-link-btn:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+.project-link-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-link-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
 .bullets a {
     color: #14497b;
     text-decoration: none;
@@ -285,10 +358,21 @@ body {
     .name-wrapper {
         flex-direction: column;
         text-align: center;
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 96px;
+        height: 96px;
     }
 
     .contact {
         align-items: center;
+        text-align: center;
+    }
+
+    .project-card {
         text-align: center;
     }
 
@@ -331,6 +415,17 @@ body {
 
 /* PRINT / PDF */
 @media print {
+    html,
+    body {
+        background: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .download-btn {
+        display: none !important;
+    }
+
     .screen-only {
         display: none !important;
     }
@@ -356,15 +451,64 @@ body {
 
     .page {
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 10mm 10mm 12mm !important;
         border-radius: 0 !important;
         max-width: none !important;
     }
 
-    .section-block,
+    .name-wrapper {
+        background: #1c4d86 !important;
+        margin-bottom: 7mm !important;
+        padding: 6mm 7mm !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .profile-photo {
+        width: 27mm !important;
+        height: 27mm !important;
+        box-shadow: none !important;
+    }
+
+    .layout {
+        display: grid !important;
+        grid-template-columns: 34% 66%;
+        gap: 6mm !important;
+        align-items: start;
+    }
+
+    .sidebar {
+        width: auto !important;
+        padding: 0 5mm 0 0 !important;
+        border-right: 1px solid #dbe5ef !important;
+        background: #edf4fb !important;
+    }
+
+    .main {
+        width: auto !important;
+        padding-left: 2mm !important;
+    }
+
+    .section-block {
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
     .experience-item {
         break-inside: avoid;
         page-break-inside: avoid;
+    }
+
+    .project-card {
+        background: #f5f9fd !important;
+        box-shadow: none !important;
+    }
+
+    .project-link-btn {
+        box-shadow: none !important;
+        transform: none !important;
     }
 }
 
