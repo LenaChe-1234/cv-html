@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import fs from 'fs';
 import puppeteer, { Browser, Page } from 'puppeteer';
 import path from 'path';
 
@@ -10,12 +11,82 @@ const isDev = process.env.NODE_ENV !== 'production';
 app.set('trust proxy', 1);
 
 const publicDir = path.join(process.cwd(), 'public');
+const visitsLogPath = path.join(process.cwd(), 'visits.log');
+
+type VisitLogEntry = {
+  visitNumber: number;
+  timestamp: string;
+  ip: string;
+  os: string;
+  userAgent: string;
+};
+
+const getInitialVisitCount = () => {
+  try {
+    if (!fs.existsSync(visitsLogPath)) return 0;
+
+    const logContent = fs.readFileSync(visitsLogPath, 'utf8').trim();
+    if (!logContent) return 0;
+
+    return logContent.split('\n').length;
+  } catch (error) {
+    console.error('Failed to read visit log:', error);
+    return 0;
+  }
+};
+
+let visitCount = getInitialVisitCount();
+
+const detectOs = (userAgent: string) => {
+  const ua = userAgent.toLowerCase();
+
+  if (ua.includes('windows')) return 'Windows';
+  if (ua.includes('iphone') || ua.includes('ipad') || ua.includes('ios')) return 'iOS';
+  if (ua.includes('android')) return 'Android';
+  if (ua.includes('mac os') || ua.includes('macintosh')) return 'macOS';
+  if (ua.includes('linux')) return 'Linux';
+
+  return 'Unknown';
+};
+
+const getClientIp = (req: Request) => {
+  const forwardedFor = req.headers['x-forwarded-for'];
+  const proxyIp = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
+
+  if (proxyIp) {
+    return proxyIp.split(',')[0].trim();
+  }
+
+  return req.ip || req.socket.remoteAddress || 'unknown';
+};
+
+const logVisit = async (req: Request) => {
+  visitCount += 1;
+
+  const userAgent = req.get('user-agent') || 'unknown';
+  const entry: VisitLogEntry = {
+    visitNumber: visitCount,
+    timestamp: new Date().toISOString(),
+    ip: getClientIp(req),
+    os: detectOs(userAgent),
+    userAgent,
+  };
+
+  console.log(`[VISIT ${entry.visitNumber}]`, entry);
+
+  try {
+    await fs.promises.appendFile(visitsLogPath, `${JSON.stringify(entry)}\n`, 'utf8');
+  } catch (error) {
+    console.error('Failed to write visit log:', error);
+  }
+};
 
 // Serve static files from /public
 app.use(express.static(publicDir));
 
 // Root route
-app.get('/', (_req, res) => {
+app.get('/', async (req, res) => {
+  await logVisit(req);
   res.sendFile(path.join(publicDir, 'index.html'));
 });
 
