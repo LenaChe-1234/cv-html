@@ -163,7 +163,7 @@ app.get('/generate-pdf', async (req: Request, res: Response) => {
     await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 45000 });
     await delay(500);
 
-    await page.emulateMediaType('screen');
+    await page.emulateMediaType('print');
 
     // Hide the button in the generated PDF
     await page.addStyleTag({
@@ -184,7 +184,7 @@ app.get('/generate-pdf', async (req: Request, res: Response) => {
       format: 'A4',
       printBackground: true,
       preferCSSPageSize: true,
-      margin: { top: '10mm', right: '12mm', bottom: '10mm', left: '12mm' },
+      margin: { top: '0', right: '0', bottom: '0', left: '0' },
     });
 
     // Convert to Buffer for checks + reliable sending
