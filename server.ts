@@ -125,7 +125,7 @@ app.get('/generate-pdf', async (req: Request, res: Response) => {
   } else {
     // allow only these in prod
     const allowed = [
-      { host: 'lenache-1234.github.io', pathPrefix: '/cv-html' },
+      { host: 'lena-tmx.github.io', pathPrefix: '/cv-html' },
       { host: 'cv-html-i450.onrender.com', pathPrefix: '/' },
     ];
 
